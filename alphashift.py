@@ -3,7 +3,7 @@
 
 def translate_me(raw_string):
 	alpha_list = string.ascii_lowercase
-	puncts = string.punctuation
+	alpha_list.remove(string.punctuation)
 
 	string.maketrans()
 
@@ -14,8 +14,8 @@ translate_me("g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm
 
 
 
-# >>> frm = 'acdefhnoprstuw'
-# >>> to = 'אקדיפהנופרסתאו'
+# >>> frm = string.ascii_lowercase
+# >>> to = 'defjehxxxxx'
 # >>> trans_table = str.maketrans(frm, to)
 # >>> hebrew_phrase = 'fear cuts deeper than swords'.translate(trans_table)
 # >>> hebrew_phrase
