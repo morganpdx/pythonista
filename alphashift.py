@@ -2,10 +2,10 @@
 
 
 def translate_me(raw_string):
-	alpha_list = string.ascii_lowercase
-	alpha_list.remove(string.punctuation)
+	alpha_list = str.ascii_lowercase
+	alpha_list.remove(str.punctuation)
 
-	string.maketrans()
+	str.maketrans()
 
 	print alpha_list
 	print puncts
