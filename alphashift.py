@@ -1,16 +1,21 @@
 #!/usr/bin/python3
 
-layout = ''
 
-print("Enter the top limit for this multiplication table:")
-top_limit = int(input('>>> '))
+def translate_me(raw_string):
+	alpha_list = string.ascii_lowercase
+	puncts = string.punctuation
 
-for i in range(0, top_limit):
-	layout = layout + '{0[' + str(i) + ']:>6}'
+	string.maketrans()
 
-for i in range(1, top_limit + 1):
-	line = []
-	for j in range(1, top_limit + 1):
-		line.append(i * j)
+	print alpha_list
+	print puncts
 
-	print(layout.format(line))
+translate_me("g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj.")
+
+
+
+# >>> frm = 'acdefhnoprstuw'
+# >>> to = 'אקדיפהנופרסתאו'
+# >>> trans_table = str.maketrans(frm, to)
+# >>> hebrew_phrase = 'fear cuts deeper than swords'.translate(trans_table)
+# >>> hebrew_phrase
