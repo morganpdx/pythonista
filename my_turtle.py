@@ -5,21 +5,25 @@ wn = turtle.Screen()               # Get a reference to the window
 wn.title("Use the Tab key to toggle between turtles") # Change the window title
 wn.bgcolor("lightgrey")           # Set the background color
 tess = turtle.Turtle()             # Create two turtles
-current_turtle = tess
 tess.color("purple")
-alex = turtle.Turtle()             # Move them apart
+tess.pensize(0)
+alex = turtle.Turtle()
 alex.color("orange")
+alex.pensize(0)
+
+current_pensize = 0
+current_turtle = tess
 
 
 def toggle_handler():
 	global current_turtle
 	if current_turtle == tess:
 		current_turtle = alex
-		wn.title("Alex is the current turtle")
+		wn.title("{0} is the current turtle, pen size is {1}".format('Alex', current_pensize))
 		wn.onclick(handler_for_alex)
 	else:
 		current_turtle = tess
-		wn.title("Tess is the current turtle")
+		wn.title("{0} is the current turtle, pen size is {1}".format('Tess', current_pensize))
 		wn.onclick(handler_for_tess)
 
 def handler_for_tess(x, y):
@@ -30,7 +34,15 @@ def handler_for_alex(x, y):
     wn.title("Alex going to {0}, {1}".format(x, y))
     alex.goto(x, y)
 
+def increase_pensize():
+	global current_pensize
+	current_pensize += 1
+	tess.pensize(current_pensize)
+	alex.pensize(current_pensize)
+	wn.ontimer(increase_pensize, 2000)
+
 wn.onkey(toggle_handler, "Tab")
 
 wn.listen()
+wn.ontimer(increase_pensize, 2000)
 turtle.mainloop()
